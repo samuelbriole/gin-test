@@ -1,20 +1,8 @@
 package main
 
-import (
-	"net/http"
-
-	"github.com/gin-gonic/gin"
-)
-
-func createRouter() *gin.Engine {
-	router := gin.Default()
-	router.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello world")
-	})
-	return router
-}
+import "github.com/samuelbriole/gin-test/presentation"
 
 func main() {
-	router := createRouter()
-	router.Run() // listen and serve on 0.0.0.0:8080
+	router := presentation.CreateRouter()
+	router.Run("localhost:8080")
 }
